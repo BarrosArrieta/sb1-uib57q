@@ -1,0 +1,298 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2.5rem;
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    position: relative;
+    overflow: hidden;
+    animation: headerSlideDown 1s var(--smooth-timing);
+}
+
+@keyframes headerSlideDown {
+    from {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.header::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: rgba(255,255,255,0.1);
+    transform: rotate(-45deg);
+    z-index: 1;
+    animation: shimmer 3s infinite linear;
+}
+
+@keyframes shimmer {
+    0% {
+        transform: rotate(-45deg) translateX(-100%);
+    }
+    100% {
+        transform: rotate(-45deg) translateX(100%);
+    }
+}
+
+.header-content {
+    position: relative;
+    z-index: 2;
+}
+
+.header h1 {
+    font-size: 2.8rem;
+    font-weight: 700;
+    letter-spacing: -1px;
+    margin-bottom: 0.5rem;
+    animation: fadeInUp 0.8s var(--bounce-timing);
+}
+
+.header p {
+    font-size: 1.1rem;
+    color: rgba(255,255,255,0.8);
+    animation: fadeInUp 0.8s var(--bounce-timing) 0.2s backwards;
+}
+
+.download-btn {
+    background: white;
+    color: var(--primary-color);
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 50px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all var(--transition-fast) var(--bounce-timing);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.download-btn:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+    background: var(--accent-color);
+    color: white;
+}
+
+.download-btn:active {
+    transform: translateY(0) scale(0.95);
+}
+
+.download-btn .fa-spinner {
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.section-title {
+    border-bottom: 3px solid var(--secondary-color);
+    padding-bottom: 0.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--primary-color);
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    transition: all var(--transition-fast) var(--smooth-timing);
+    animation: slideInLeft 0.6s var(--smooth-timing);
+}
+
+.section-title:hover {
+    transform: translateX(10px);
+    color: var(--secondary-color);
+}
+
+.section-title i {
+    transition: transform var(--transition-fast) var(--bounce-timing);
+}
+
+.section-title:hover i {
+    transform: scale(1.2) rotate(360deg);
+}
+
+.experience-item {
+    background: var(--background-light);
+    border-left: 4px solid var(--secondary-color);
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    transition: all var(--transition-medium) var(--smooth-timing);
+    position: relative;
+    animation: fadeInUp 0.6s var(--smooth-timing);
+}
+
+.experience-item:hover {
+    transform: translateX(10px) scale(1.02);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    background: white;
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+    animation: fadeIn 0.8s var(--smooth-timing);
+}
+
+.skill-tag {
+    background: var(--secondary-color);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    text-align: center;
+    transition: all var(--transition-fast) var(--bounce-timing);
+    animation: scaleIn 0.4s var(--bounce-timing);
+}
+
+.skill-tag:hover {
+    transform: translateY(-3px) scale(1.1);
+    background: var(--primary-color);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.contact-info {
+    background: var(--background-light);
+    border-radius: 10px;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    transition: all var(--transition-medium) var(--smooth-timing);
+    animation: slideInRight 0.6s var(--smooth-timing);
+}
+
+.contact-info:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    transition: all var(--transition-fast) var(--smooth-timing);
+    text-decoration: none;
+    color: inherit;
+}
+
+.contact-item:hover {
+    transform: translateX(10px);
+    color: var(--secondary-color);
+}
+
+.contact-item i {
+    transition: transform var(--transition-fast) var(--bounce-timing);
+    font-size: 1.2rem;
+}
+
+.contact-item:hover i {
+    transform: scale(1.2);
+    color: var(--accent-color);
+}
+
+.whatsapp-link {
+    cursor: pointer;
+    position: relative;
+}
+
+.whatsapp-link::after {
+    content: 'Contactar por WhatsApp';
+    position: absolute;
+    background: var(--primary-color);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    font-size: 0.8rem;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(10px);
+    opacity: 0;
+    pointer-events: none;
+    transition: all var(--transition-fast) var(--smooth-timing);
+    white-space: nowrap;
+}
+
+.whatsapp-link:hover::after {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}
+
+.whatsapp-link i {
+    color: #25D366;
+}
+
+.whatsapp-link:hover i {
+    color: #128C7E;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes scaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
